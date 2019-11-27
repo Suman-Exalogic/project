@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Log-In</title>
+    <style type="text/css">
+         body{
+   width:100%;
+   background-color:#607991;
+   /*background:-webkit-linear-gradient(#82B4D5,#fff);*/
+   font-family:'Trebuchet MS';
+   /*color:#fff;*/
+   height:100vh;
+   margin-left: 120px;
+ }
+ .main{
+   height:500px;
+   width:700px;
+   /*border:1px solid #fff;*/
+   margin:8% auto;
+ }
+ .main div{
+   display: inline-block;
+   border:none;
+ }
+ .main .left{
+   width:50%;
+   float:left;
+   /*border-right:1px solid #fff;*/
+   height:100%;
+   /*padding:15px 0 0 0;*/
+   background-color:#fff;
+   position: relative;
+ }
+ .left h1{
+   text-align: center;
+   /*padding-left:120px;*/
+   padding-top:100px;
+   margin-bottom: 0;
+ }
+ .left p{
+   margin-top:10%;
+   text-align:center;
+   color:grey;
+ }
+ .left form{
+   text-align: center;
+ }
+ .left form input{
+   text-align:center;
+   width:70%;
+   height:45px;
+   margin-bottom:15px;
+   border:none;
+   border:1px solid #F8F8F8;
+   background-color:#b5aeae;
+   border-radius:25px;
+ }
+ .left form input:focus{
+   outline:none;
+ }
+ ::-webkit-input-placeholder{
+   color:black;
+   letter-spacing: 1px;
+ }
+ .left form input[type="submit"]{
+   background-color:#59cc49;
+   color:#fff;
+   font-weight: bold;
+ }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="left">
+            <h1>Login</h1>
+            <p></p>
+            <form action="/sessions" method="post">
+                <input type="hidden" name="authenticity_token" name="<%= form_authenticity_token%>">
+                <input type="email" placeholder="Email" name=user[email]>
+                <input type="password" placeholder="Password" name="user[password]">
+                <input type="submit" value="LOG IN">
+            </form>
+
+        </div>
+
+    </div>
+</body>
+</html>

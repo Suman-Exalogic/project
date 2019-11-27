@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<style media="screen">
+
+	</style>
+</head>
+<body>
+	<div class="topnav">
+  <a class="active" href="#">Home</a>
+  <a href="/users/new">Employee Registration</a>
+  <%= link_to "Logout", signout_path, method: :delete, data: {confirm: "Are you sure???"} %>
+</div><br>
+<div class="w3-container">
+	<table width="100%" class="w3-table w3-bordered">
+  <thead>
+    <tr>
+        <th style="width: 100px; text-align: left;">First Name</th>
+        <th style="width: 100px; text-align: left;">Last Name</th>
+        <th style="width: 100px; text-align: left;">Email</th>
+        <th style="width: 100px; text-align: left;">Date of birth</th>
+        <th style="width: 100px; text-align: left;">MobileNumber</th>
+        <th style="width: 100px; text-align: left;"></th>
+        <th style="width: 100px; text-align: left;"></th>
+				<th style="width: 100px; text-align: left;"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user.each do |user| %>
+      <% if user.role!='admin'%>
+			<tr>
+				 <td style="width: 100px;"><%=user.fname%>
+				 <td style="width: 100px;"><%=user.lname%>
+				 <td style="width: 100px;"><%=user.email%>
+				 <td style="width: 100px;"><%=user.dob.strftime("%d-%m-%Y") rescue nil %>
+				 <td style="width: 100px;"><%=user.mobile.to_i%>
+				 <td><%= link_to "Show User",user_path(user)%></td>
+				 <td><%= link_to "Edit User",edit_user_path(user)%></td>
+				 <td><%= link_to "Delete User",user_path(user), method: :delete, data: {confirm:"Are you sure?"}%></td>
+			</tr>
+			<% end%>
+    <% end %>
+  </tbody>
+</table>
+</div>
+</body>
+</html>
