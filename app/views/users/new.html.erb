@@ -25,31 +25,38 @@ table{
 table.inner{
   border: 0px;
 }
+.password{
+	text-align: center;
+	color: red;
+}
 </style>
 </head>
-
 <body>
 	<div class="topnav">
-  		<a href="/users">Home</a>
+		<a href="/users">Home</a>
   		<a class="active" href="/users/new">Employee Registration</a>
 			<%= link_to "Logout", signout_path, method: :delete, data: {confirm: "Are you sure???"} %>
 
 	</div>
 	<h3>EMPLOYEE REGISTRATION FORM</h3>
 	<form action="/users" method="post">
+	<div class="password">
+	<span><%= @msg%></span>
+	</div>
 	<table align="center" cellpadding = "10">
 	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
 	<!----- First Name ---------------------------------------------------------->
 	<tr>
 	<td>FIRST NAME</td>
-	<td><input type="text" name="login[fname]" maxlength="30"/>
+	<td><input type="text" name="login[fname]" maxlength="30" required/>
+
 	</td>
 	</tr>
 
 	<!----- Last Name ---------------------------------------------------------->
 	<tr>
 	<td>LAST NAME</td>
-	<td><input type="text" name="login[lname]" maxlength="30"/>
+	<td><input type="text" name="login[lname]" maxlength="30" required/>
 	</td>
 	</tr>
 
@@ -58,7 +65,7 @@ table.inner{
 	<td>DATE OF BIRTH</td>
 
 	<td>
-	<input type="date" name="login[dob]">
+	<input type="date" name="login[dob]" required>
 	</td>
 	</tr>
 
@@ -72,8 +79,7 @@ table.inner{
 	<tr>
 	<td>MOBILE NUMBER</td>
 	<td>
-	<input type="number" name="login[mobile]" maxlength="10" />
-	(10 digit number)
+	<input type="text" name="login[mobile]" maxlength="10" pattern="\d{10}" title="Please enter exactly 10 digits" required/>
 	</td>
 	</tr>
 
@@ -118,7 +124,7 @@ table.inner{
 	<!----- Pin Code ---------------------------------------------------------->
 	<tr>
 	<td>PIN CODE</td>
-	<td><input type="number" name="login[pincode]" maxlength="6" />
+	<td><input type="text" name="login[pincode]" maxlength="6" pattern="\d{6}" title="Please enter exactly 6 digits" /><br>
 	(6 digit number)
 	</td>
 	</tr>
@@ -153,7 +159,7 @@ table.inner{
 	<!----- Emergency Contact Number ---------------------------------------------------------->
 	<tr>
 	<td>EMERGENCY CONTACT NUMBER</td>
-	<td><input type="number" name="login[econtact]" maxlength="10" /></td>
+	<td><input type="text" name="login[econtact]" maxlength="10" pattern="\d{10}" title="Please enter exactly 10 digits" /></td>
 	</tr>
 
 
@@ -181,7 +187,7 @@ table.inner{
 	<tr>
 	<td>TYPE <br /><br /><br /></td>
 	<td>
-	<select name="login[role]" id="Type">
+	<select name="login[role]" id="Type" required>
 	<option value="employee">Employee</option>
 	<option value="admin">Admin</option></select>
 	</td>

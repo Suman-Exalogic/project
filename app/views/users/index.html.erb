@@ -5,15 +5,31 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<style media="screen">
-
+		.mar{
+			font-size: 20px;
+			font-weight: bold;
+			color: black;
+			}
+			.list{
+				font-size: 30px;
+			}
+			fieldset{
+				border-color: black;
+				}
 	</style>
 </head>
-<body>
+<marquee class="mar" behavior="scroll" direction="right" scrollamount="4">WELCOME TO DASHBOARD!!!</marquee>
+
+<body style="background-color:#E6ECE2;">
+
 	<div class="topnav">
-  <a class="active" href="#">Home</a>
-  <a href="/users/new">Employee Registration</a>
-  <%= link_to "Logout", signout_path, method: :delete, data: {confirm: "Are you sure???"} %>
+      <a class="active" href="#">Home</a>
+      <a href="/users/new">Employee Registration</a>
+      <%= link_to "Logout", signout_path, method: :delete, data: {confirm: "Are you sure???"} %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <img src = "http://www.exalogic.in/wp-content/uploads/2018/08/exalogic.png" style="height:50px;">
 </div><br>
+<fieldset>
+<legend><h1 class="list" >EMPLOYEE LIST</h1></legend><br>
 <div class="w3-container">
 	<table width="100%" class="w3-table w3-bordered">
   <thead>
@@ -25,7 +41,7 @@
         <th style="width: 100px; text-align: left;">MobileNumber</th>
         <th style="width: 100px; text-align: left;"></th>
         <th style="width: 100px; text-align: left;"></th>
-				<th style="width: 100px; text-align: left;"></th>
+		<th style="width: 100px; text-align: left;"></th>
     </tr>
   </thead>
 
@@ -33,19 +49,21 @@
     <% @user.each do |user| %>
       <% if user.role!='admin'%>
 			<tr>
-				 <td style="width: 100px;"><%=user.fname%>
-				 <td style="width: 100px;"><%=user.lname%>
-				 <td style="width: 100px;"><%=user.email%>
-				 <td style="width: 100px;"><%=user.dob.strftime("%d-%m-%Y") rescue nil %>
-				 <td style="width: 100px;"><%=user.mobile.to_i%>
-				 <td><%= link_to "Show User",user_path(user)%></td>
-				 <td><%= link_to "Edit User",edit_user_path(user)%></td>
-				 <td><%= link_to "Delete User",user_path(user), method: :delete, data: {confirm:"Are you sure?"}%></td>
+				 <td style="width: 100px;"><%=user.fname%></td>
+				 <td style="width: 100px;"><%=user.lname%></td>
+				 <td style="width: 100px;"><%=user.email%></td>
+				 <td style="width: 100px;"><%=user.dob.strftime("%d-%m-%Y") rescue nil %></td>
+				 <td style="width: 100px;"><%=user.mobile.to_i%></td>
+				 <td style="color: blue;"><%= link_to "Show User",user_path(user)%></td>
+				 <td style="color: blue;"><%= link_to "Edit User",edit_user_path(user)%></td>
+				 <td style="color: blue;"><%= link_to "Delete User",user_path(user), method: :delete, data: {confirm:"Are you sure?"}%></td>
 			</tr>
 			<% end%>
     <% end %>
   </tbody>
 </table>
 </div>
+</fieldset>
+
 </body>
 </html>

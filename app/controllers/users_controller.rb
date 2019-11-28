@@ -8,10 +8,12 @@ class UsersController < ApplicationController
 
   def create
   	@user = User.new(user_params)
+    @msg
   	if @user.save
   		redirect_to @user
   	else
-  		render 'new'
+    @msg = "***Password Mismatch***"
+  	render 'new'
   	end
   end
 
@@ -37,6 +39,7 @@ class UsersController < ApplicationController
     @user.delete
     redirect_to '/users'
   end
+
 
   private
 
