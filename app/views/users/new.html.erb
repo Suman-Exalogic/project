@@ -47,37 +47,36 @@ table.inner{
 	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
 	<!----- First Name ---------------------------------------------------------->
 	<tr>
-	<td>FIRST NAME</td>
-	<td><input type="text" name="login[fname]" maxlength="30" required/>
-
+	<td>FIRST NAME <label style="color:red">*</label></td>
+	<td><input type="text" name="login[fname]" class="field" required pattern="[a-zA-Z]+"  title="Please enter alphabets"/></td>
 	</td>
 	</tr>
 
 	<!----- Last Name ---------------------------------------------------------->
 	<tr>
-	<td>LAST NAME</td>
-	<td><input type="text" name="login[lname]" maxlength="30" required/>
+	<td>LAST NAME <label style="color:red">*</label></td>
+	<td><input type="text" name="login[lname]" class="field" required pattern="[a-zA-Z]+" title="Please enter alphabets" /></td>
 	</td>
 	</tr>
 
 	<!----- Date Of Birth -------------------------------------------------------->
 	<tr>
-	<td>DATE OF BIRTH</td>
+	<td>DATE OF BIRTH <label style="color:red">*</label></td>
 
 	<td>
-	<input type="date" name="login[dob]" required>
+	<input type="date" name="login[dob]" max="<%= Date.new(Date.today.year-18,Date.today.mon, Date.today.mday)%>" required>
 	</td>
 	</tr>
 
 	<!----- Email Id ---------------------------------------------------------->
 	<tr>
-	<td>EMAIL ID</td>
+	<td>EMAIL ID <label style="color:red">*</label></td>
 	<td><input type="email" name="login[email]" maxlength="100" required/></td>
 	</tr>
 
 	<!----- Mobile Number ---------------------------------------------------------->
 	<tr>
-	<td>MOBILE NUMBER</td>
+	<td>MOBILE NUMBER <label style="color:red">*</label></td>
 	<td>
 	<input type="text" name="login[mobile]" maxlength="10" pattern="\d{10}" title="Please enter exactly 10 digits" required/>
 	</td>
@@ -133,7 +132,7 @@ table.inner{
 	<!----- Blood Type ---------------------------------------------------------->
 
 	<tr>
-	<td>BLOOD TYPE <br /><br /><br /></td>
+	<td>BLOOD TYPE </td>
 	<td>
 	<select name="login[blood]" id="Blood_Type">
 	<option value=nil>Blood Group</option>
@@ -185,7 +184,7 @@ table.inner{
 	</tr>
 
 	<tr>
-	<td>TYPE <br /><br /><br /></td>
+	<td>TYPE <label style="color:red">*</label></td>
 	<td>
 	<select name="login[role]" id="Type" required>
 	<option value="employee">Employee</option>
@@ -194,14 +193,14 @@ table.inner{
 	</tr>
 
 	<tr>
-	<td> PASSWORD</td>
+	<td> PASSWORD <label style="color:red">*</label></td>
 	<td>
 	  <input type="password" name="login[password]" required>
 	</td>
 	</tr>
 
 	<tr>
-	<td> CONFIRM PASSWORD</td>
+	<td> CONFIRM PASSWORD <label style="color:red">*</label></td>
 	<td>
 	  <input type="password" name="login[password_confirmation]" required>
 	</td>

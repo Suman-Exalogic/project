@@ -39,21 +39,21 @@ table.inner{
   <table align="center" cellpadding = "10">
   <!----- First Name ---------------------------------------------------------->
   <tr>
-  <td>FIRST NAME</td>
-  <td><%= f.text_field :fname, :required=>true%>
+  <td>FIRST NAME </td>
+  <td><%= f.text_field :fname, :required => true, :pattern => "[a-zA-Z]+", :title =>"Please enter alphabets"%></td>
   </td>
   </tr>
 
   <!----- Last Name ---------------------------------------------------------->
   <tr>
   <td>LAST NAME</td>
-  <td><%= f.text_field :lname, :required=>true%></td>
+  <td><%= f.text_field :lname, :required=>true, :required => true, :pattern => "[a-zA-Z]+", :title =>"Please enter alphabets"%></td>
   </tr>
 
   <!----- Date Of Birth -------------------------------------------------------->
   <tr>
   <td>DATE OF BIRTH</td>
-  <td><%= f.date_field :dob, :required=>true%></td>
+  <td><%= f.date_field :dob, :required=>true, :max => "<%= Date.new(Date.today.year-18,Date.today.mon, Date.today.mday)"%></td>
   </tr>
 
   <!----- Email Id ---------------------------------------------------------->
@@ -65,7 +65,7 @@ table.inner{
   <!----- Mobile Number ---------------------------------------------------------->
   <tr>
   <td>MOBILE NUMBER</td>
-  <td><%= f.text_field :mobile, :pattern=>'\d*', :maxlength=>10, :minlength=>10%></td>
+  <td><%= f.text_field :mobile,  :required => true,:pattern=>'\d*', :maxlength=>10, :minlength=>10%></td>
   </tr>
 
   <!----- Gender ----------------------------------------------------------->
@@ -105,7 +105,7 @@ table.inner{
   <!----- Pin Code ---------------------------------------------------------->
   <tr>
   <td>PIN CODE</td>
-  <td><%= f.text_field :pincode, :pattern=>'\d*', :maxlength=>6, :minlength=>6%></td>
+  <td><%= f.text_field :pincode,  :required => true, :pattern=>'\d*', :maxlength=>6, :minlength=>6%></td>
   </tr>
 
 
@@ -121,7 +121,7 @@ table.inner{
   <!----- Emergency Contact Name ---------------------------------------------------------->
   <tr>
   <td>EMERGENCY CONTACT NAME</td>
-<td><%= f.text_field :ename%></td>
+<td><%= f.text_field :ename, :required=>true, :required => true, :pattern => "[a-zA-Z]+", :title =>"Please enter alphabets"%></td>
   </tr>
 
 
@@ -151,7 +151,7 @@ table.inner{
   </tr>
 
   <tr>
-  <td>TYPE <br /><br /><br /></td>
+  <td>TYPE </td>
   <td>
   <%=f.select :role,["Employee","Admin"]%>
   </td>
