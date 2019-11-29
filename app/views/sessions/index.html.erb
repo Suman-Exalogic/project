@@ -3,14 +3,14 @@
 <head>
     <title>Log-In</title>
     <style type="text/css">
-         body{
+body{
    width:100%;
-   background-color:#607991;
+   background-color:#0ca3d2;
    /*background:-webkit-linear-gradient(#82B4D5,#fff);*/
    font-family:'Trebuchet MS';
    /*color:#fff;*/
    height:100vh;
-   margin-left: 120px;
+   margin-left: 160px;
  }
  .main{
    height:500px;
@@ -52,7 +52,7 @@
    margin-bottom:15px;
    border:none;
    border:1px solid #F8F8F8;
-   background-color:#b5aeae;
+   background-color: #C0C0C0  ;
    border-radius:25px;
  }
  .left form input:focus{
@@ -63,21 +63,22 @@
    letter-spacing: 1px;
  }
  .left form input[type="submit"]{
-   background-color:#59cc49;
+   background-color:#0ca3d2;
    color:#fff;
    font-weight: bold;
+   width: 150px;
  }
-    </style>
+
+</style>
 </head>
 <body>
     <div class="main">
         <div class="left">
-            <h1>Login</h1><br>
-            <p></p>
+            <h1>Login</h1><br><br><br><br>
             <form action="/sessions" method="post">
                 <input type="hidden" name="authenticity_token" name="<%= form_authenticity_token%>">
                 <input type="email" placeholder="Email" name=user[email]>
-                <input type="password" placeholder="Password" name="user[password]"><br><br>
+                <input type="password" placeholder="Password" name="user[password]"><br><br><br>
                 <input type="submit" value="LOG IN">
             </form>
 
