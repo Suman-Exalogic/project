@@ -44,7 +44,14 @@ table.inner{
     <%end%>
   <%= link_to "Logout", signout_path, method: :delete, data: {confirm: "Are you sure???"} %>
 	</div>
-	<h3></h3>
+
+<% if session[:user_type]=='admin'%>
+<legend><h1 style="text-align: center;">Welcome Admin!!</h1></legend>
+<% else %>
+<legend><h1 style="text-align: center;">Welcome <%= @user.fname%></h1></legend>
+<%end%>
+	
+
   <table align="center" cellpadding = "10">
   <!----- First Name ---------------------------------------------------------->
   <tr>
