@@ -14,7 +14,7 @@
  *= require_self
  */
 .topnav {
-  background-color: #A1A79E;
+  background-color: silver;
   overflow: hidden;
 }
 
@@ -36,7 +36,7 @@
 
 /* Add a color to the active/current link */
 .topnav a.active {
-  background-color: #4CAF50;
+  background-color: #0ca3d2;
   color: white;
 }
 th{
@@ -47,4 +47,4 @@ th{
 td{
   	height: 30px;
   }
-    td:hover {background-color:grey;}
+    td:hover {background-color:#0ca3d2;}
