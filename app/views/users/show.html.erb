@@ -51,8 +51,8 @@ table.inner{
 <legend><h1 style="text-align: center;">Welcome <%= @user.fname%></h1></legend>
 <%end%>
 	
-
-  <table align="center" cellpadding = "10">
+<h1 style="text-align: center">PERSONAL DETAILS</h1>
+  <table align="center" cellpadding = "5"  margin-left = "auto"    margin-right = "auto">
   <!----- First Name ---------------------------------------------------------->
   <tr>
   <td>FIRST NAME</td>
@@ -169,7 +169,7 @@ table.inner{
   </td>
   </tr>
 </table>
-
-
+<div style="text-align: center"><%= link_to "Salary Details", suman_path(@user)%>
+</div>
 </body>
 </html>

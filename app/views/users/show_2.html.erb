@@ -1,0 +1,128 @@
+<html>
+<head>
+<title></title>
+<style type="text/css">
+  h3{
+  font-family: Calibri;
+  font-size: 25pt;
+  font-style: normal;
+  font-weight: bold;
+  color:black;
+  text-align: center;
+  text-decoration: underline;
+}
+td {
+ padding: 8px;
+ text-align: left;
+ border-bottom: 1px solid #ddd;
+}
+tr:hover {background-color:#f5f5f5;}
+
+
+table{
+  font-family: Calibri;
+  color:black;
+  font-size: 11pt;
+  font-style: normal;
+  font-weight: bold;
+  background-color:white;
+  border-collapse: collapse;
+  border: 2px solid navy;
+}
+table.inner{
+  border: 3px;
+}
+</style>
+</head>
+<body style="background-color:#E6ECE2;">
+  <div class="topnav">
+    <% if session[:user_type]=='admin' %>
+      <a href="/users">Home</a>
+      <a href="/users/new">Employee Registration</a>
+    <%else%>
+      <a href="#">Home</a>
+    <%end%>
+  <%= link_to "Logout", signout_path, method: :delete, data: {confirm: "Are you sure???"} %>
+  </div>
+
+<% if session[:user_type]=='admin'%>
+<legend><h1 style="text-align: center;">Welcome Admin!!</h1></legend>
+<% else %>
+<legend><h1 style="text-align: center;">Welcome <%= @user.fname%></h1></legend>
+<%end%>
+  
+<h1 style="text-align: center">SALARY DETAILS</h1>
+<table align="center" cellpadding = "10"  margin-left = "auto"    margin-right = "auto">
+
+<tr>
+  <td>BASIC PAY</td>
+  <td><%=@user.bp%></td>
+</tr>
+
+<tr>
+  <td>NUMBER OF LEAVES</td>
+  <td><%=@user.nol%></td>
+</tr>
+
+<tr>
+  <td>REIMBURSEMENT</td>
+  <td><%=@user.reim%></td>
+</tr>
+
+
+<tr>
+  <td>HRA</td>
+  <td><%=@user.hra%></td>
+</tr>
+
+<tr>
+  <td>CCA</td>
+  <td><%=@user.cca%></td>
+</tr>
+
+<tr>
+  <td>SPECIAL ALLOWANCE</td>
+  <td><%=@user.sa%></td>
+</tr>
+
+<tr>
+  <td>TRANSPORT ALLOWANCE</td>
+  <td><%=@user.ta%></td>
+</tr>
+
+<tr>
+  <td>GROSS SALARY</td>
+  <td><%=@user.gsal%></td>
+</tr>
+
+
+<tr>
+  <td>INCOME TAX</td>
+  <td><%=@user.it%></td>
+</tr>
+
+<tr>
+  <td>PROFESSIONAL TAX</td>
+  <td><%=@user.pt%></td>
+</tr>
+
+<tr>
+  <td>LOSS OF PAY</td>
+  <td><%=@user.lop%></td>
+</tr>
+
+<tr>
+  <td>OTHER DEDUCTIONS</td>
+  <td><%=@user.od%></td>
+</tr>
+
+<tr>
+  <td>NET SALARY</td>
+  <td><%=@user.ns%></td>
+</tr>
+
+</table>
+</body>
+</html>
+
+
