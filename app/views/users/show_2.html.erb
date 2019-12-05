@@ -47,7 +47,7 @@ table.inner{
   </div>
 
 <% if session[:user_type]=='admin'%>
-<legend><h1 style="text-align: center;">Welcome Admin!!</h1></legend>
+<legend><h1 style="text-align: center;"></h1></legend>
 <% else %>
 <legend><h1 style="text-align: center;">Welcome <%= @user.fname%></h1></legend>
 <%end%>

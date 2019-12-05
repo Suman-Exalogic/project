@@ -33,6 +33,20 @@ table{
 table.inner{
   border: 3px;
 }
+
+a:link, a:visited {
+  background-color: silver;
+  color: black;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:hover, a:active {
+  background-color: green;
+}
+.bt{ text-decoration:none; text-align: center;}
 </style>
 </head>
 <body style="background-color:#E6ECE2;">
@@ -47,7 +61,7 @@ table.inner{
 	</div>
 
 <% if session[:user_type]=='admin'%>
-<legend><h1 style="text-align: center;">Welcome Admin!!</h1></legend>
+<legend><h1 style="text-align: center;"></h1></legend>
 <% else %>
 <legend><h1 style="text-align: center;">Welcome <%= @user.fname%></h1></legend>
 <%end%>
@@ -170,7 +184,10 @@ table.inner{
   </td>
   </tr>
 </table>
-<div style="text-align: center"><%= link_to "Salary Details", suman_path(@user)%>
+<br><br>
+</div>
+<div class = "bt">
+<a href="<%= suman_path(@user) %>">Salary Details</a>
 </div>
 </body>
 </html>
