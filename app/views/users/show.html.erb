@@ -53,7 +53,7 @@ a:hover, a:active {
 	<div class="topnav">
     <% if session[:user_type]=='admin' %>
   		<a href="/users">Home</a>
-  		<a href="/users/new">Employee Registration</a>
+  		<a class="active" href="/users/new">User Details</a>
     <%else%>
       <a href="#">Home</a>
     <%end%>
