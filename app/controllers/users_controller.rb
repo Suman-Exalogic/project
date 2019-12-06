@@ -25,7 +25,7 @@ class UsersController < ApplicationController
 
 def temp
     @user =User.find(session[:temp])
-    @user.update(bp: params[:bp],hra: params[:hra],nol: params[:nol],reim: params[:reim],
+    @user.update(bp: params[:bp],bacc: params[:bacc],hra: params[:hra],nol: params[:nol],reim: params[:reim],
       cca: params[:cca],sa: params[:sa],ta: params[:ta],gsal: params[:gsal],it: params[:it],
       pt: params[:pt],lop: params[:lop],od: params[:od],ns: params[:ns])
     # if @user.update(userparams)
@@ -67,6 +67,15 @@ end
     redirect_to '/users'
   end
 
+
+  def payslip
+    @user = User.find(params[:id])
+
+
+  end
+ 
+
+
   def itax(sal)
     if sal>0 && sal<=250000
       return 0
@@ -82,13 +91,13 @@ end
   private
 
   def user_params
-  	params.require(:login).permit(:fname,:lname,:dob,:email,:mobile,:gender,:address,:city,
+  	params.require(:login).permit(:doj,:department,:designation,:bacc,:empid,:fname,:lname,:dob,:email,:mobile,:gender,:address,:city,
   		:state,:country,:pincode,:blood,:ename,:econtact,:pskill,:sskill1,:sskill2,
   		:role,:password,:password_confirmation)
   end
 
   def userparams
-  	params.require(:user).permit(:fname,:lname,:dob,:email,:mobile,:gender,:address,:city,
+  	params.require(:user).permit(:doj,:department,:designation,:bacc,:empid,:fname,:lname,:dob,:email,:mobile,:gender,:address,:city,
   		:state,:country,:pincode,:blood,:ename,:econtact,:pskill,:sskill1,:sskill2,
   		:role,:password,:password_confirmation,:bp, :hra ,:nol, :cca, :sa ,:ta ,:reim ,:gsal, :it, :pt, :lop, :od ,:ns)
   end
@@ -96,5 +105,6 @@ end
   def tempparams
     params.require(:user).permit(:bp, :hra ,:nol, :cca, :sa ,:ta ,:reim ,:gsal, :it, :pt, :lop, :od ,:ns)
   end
-
+  # params.require(:user).permit(:empid,:fname,:lname,:department,:designation,:doj,:bacc,:bp,:hra,:cca,
+    # :sa,:ta,:reim,:gsal,:pt,:lop,:od,:ns)
 end

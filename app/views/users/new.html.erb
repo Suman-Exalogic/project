@@ -81,6 +81,15 @@ table.inner{
 	<input type="text" name="login[mobile]" maxlength="10" pattern="\d{10}" title="Please enter exactly 10 digits" required/>
 	</td>
 	</tr>
+	
+	
+
+	<tr>
+		<td>DATE OF JOINING <label style="color:red">*</label></td>
+		<td><input type="date" name="login[doj]" max="<%= Date.today%>"></td>
+	</tr>
+
+
 
 	<!----- Gender ----------------------------------------------------------->
 	<tr>
@@ -191,6 +200,23 @@ table.inner{
 	<option value="admin">Admin</option></select>
 	</td>
 	</tr>
+
+	<tr>
+		<td>EMPLOYEE ID <label style="color:red">*</label></td>
+		<td><input type="integer" name="login[empid]" minlength="0" /></td>
+	</tr>
+
+
+	<tr>
+		<td>DEPARTMENT</td>
+		<td><input type="text" name="login[department]" maxlength="100"/></td>
+	</tr>
+
+	<tr>
+		<td>DESIGNATION</td>
+		<td><input type="text" name="login[designation]" maxlength="100"/></td>
+	</tr>
+
 
 	<tr>
 	<td> PASSWORD <label style="color:red">*</label></td>

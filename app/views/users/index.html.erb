@@ -58,12 +58,9 @@
 				 <td style="width: 100px;"><%=user.mobile.to_i%></td>
 				 <td style="color: blue;width: 100px;"><%= link_to "Add Salary",salary_path(user)%></td>
 				 <td style="color: blue;width: 100px;"><%= link_to "Salary Details",suman_path(user)%></td>
-
-
-				 <td style="color: blue;width: 100px;"><%= link_to "Show User",user_path(user)%></td>
-
-				 <td style="color: blue;width: 100px;"><%= link_to "Edit User",edit_user_path(user)%></td>
-				 <td style="color: blue;width: 100px;"><%= link_to "Delete User",user_path(user), method: :delete, data: {confirm:"Are you sure?"}%></td>
+				<td style="color: blue;width: 100px;"><%= link_to "Show User",user_path(user)%></td>
+				<td style="color: blue;width: 100px;"><%= link_to "Edit User",edit_user_path(user)%></td>
+				<td style="color: blue;width: 100px;"><%= link_to "Delete User",user_path(user), method: :delete, data: {confirm:"Are you sure?"}%></td>
 			</tr>
 			<% end%>
     <% end %>

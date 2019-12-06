@@ -99,6 +99,12 @@ a:hover, a:active {
   <td><%= @user.mobile%></td>
   </tr>
 
+
+  <tr>
+    <td>DATE OF JOINING</td>
+    <td><%=@user.doj%></td>
+  </tr>
+
   <!----- Gender ----------------------------------------------------------->
   <tr>
   <td>GENDER</td>
@@ -158,6 +164,31 @@ a:hover, a:active {
   <td><%= @user.econtact%></td>
   </tr>
 
+  <tr>
+  <td>TYPE</td>
+  <td>
+  <%=@user.role%>
+  </td>
+  </tr>
+
+
+  <tr>
+  <td>EMPLOYEE ID</td>
+  <td>
+  <%=@user.empid%>
+  </td>
+  </tr>
+
+  <tr>
+  <td> DEPARTMENT</td>
+  <td><%= @user.department%></td>
+  </tr>
+
+  <tr>
+  <td> DESIGNATION</td>
+  <td><%= @user.designation%></td>
+  </tr>
+
 
   <!----- Primary Skill ---------------------------------------------------------->
   <tr>
@@ -177,12 +208,10 @@ a:hover, a:active {
 <td><%= @user.sskill2%></td>
   </tr>
 
-  <tr>
-  <td>TYPE</td>
-  <td>
-  <%=@user.role%>
-  </td>
-  </tr>
+
+  
+
+  
 </table>
 <br><br>
 </div>

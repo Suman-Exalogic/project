@@ -68,6 +68,12 @@ table.inner{
   <td><%= f.text_field :mobile,  :required => true,:pattern=>'\d*', :maxlength=>10, :minlength=>10%></td>
   </tr>
 
+
+  <tr>
+    <td>DATE OF JOINING</td>
+    <td><%= f.date_field :doj, :required => true, :max => Date.today%></td>
+  </tr>
+
   <!----- Gender ----------------------------------------------------------->
   <tr>
   <td>GENDER</td>
@@ -155,6 +161,24 @@ table.inner{
   <td>
   <%=f.select :role,["Employee","Admin"]%>
   </td>
+  </tr>
+
+  <tr>
+  <td>EMPLOYEE ID</td>
+  <td>
+  <%= f.text_field :empid, :required=>true %>
+  </td>
+  </tr>
+
+
+  <tr>
+    <td>DEPARTMENT</td>
+    <td><%= f.text_field :department%></td>  
+  </tr>
+
+  <tr>
+    <td>DESIGNATION</td>
+    <td><%= f.text_field :designation%></td>  
   </tr>
 
   <tr>

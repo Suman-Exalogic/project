@@ -10,7 +10,7 @@ class AddGsalToUsers < ActiveRecord::Migration[6.0]
   	add_column :users,:pt,:decimal, :default=>0
   	add_column :users,:lop,:decimal, :default=>0
   	add_column :users,:od,:decimal, :default=>0
-	add_column :users,:gsal,:decimal, :default=>0
+	 add_column :users,:gsal,:decimal, :default=>0
   	add_column :users,:nol,:decimal, :default=>0
   	add_column :users,:ns,:decimal, :default=>0
   end

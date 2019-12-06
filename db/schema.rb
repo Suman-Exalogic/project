@@ -10,7 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_04_112316) do
+ActiveRecord::Schema.define(version: 2019_12_06_100050) do
+
+  create_table "charges", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "fname"
@@ -49,6 +54,12 @@ ActiveRecord::Schema.define(version: 2019_12_04_112316) do
     t.decimal "gsal", default: "0.0"
     t.decimal "nol", default: "0.0"
     t.decimal "ns", default: "0.0"
+    t.string "department"
+    t.date "doj"
+    t.string "designation"
+    t.string "accname"
+    t.integer "empid"
+    t.integer "bacc"
   end
 
 end

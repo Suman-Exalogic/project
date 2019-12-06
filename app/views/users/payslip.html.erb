@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Payslip</title>
+	<style type="text/css">
+	#title {
+	margin-bottom: 20px;
+	font-size: 38px;
+	font-weight: 600;
+	}
+
+    #scope {
+	border-top: 2px solid #ccc;
+	padding: 9px 0 4px 0;
+	display: flex;
+	justify-content: space-around;
+	}
+
+	#scope > .scope-entry {
+	text-align: center;
+	}
+</style>
+</head>
+<div class="topnav">
+<a href="/users">Home</a>
+<a  class="active">Generate Payslip</a>
+<%= link_to "Logout", signout_path, method: :delete, data: {confirm: "Are you sure???"} %>
+</div><br><br>
+
+<img src = "http://www.exalogic.in/wp-content/uploads/2018/08/exalogic.png" style="height:50px;">
+
+    <p style="font-size: 20px; text-align: center;"><b>Exalogic Solutions Pvt Ltd</b><br>22, Ganganagar 1st Main Road, Bangalore-560032 (India)</p>
+  <hr>
+<center><h1>Pay Slip </h1></center>
+<hr>
+
+ <style> 
+          
+        th, td { 
+            padding: 10px; 
+        } 
+          
+        th { 
+            text-align: left; 
+        } 
+    </style> 
+
+</head>
+<body>
+	<table width = 100%>
+		<tr>
+			<td>
+				<strong>Employee id:</strong></td>
+			<td><%= (@user.empid.to_s).to_i%></td>
+			<td>
+				<strong>Name:</strong></td>	
+				<td><%= @user.fname %>&nbsp;<%= @user.lname %></td>
+		</tr>
+		<tr>
+			<td>
+				<strong>Department:</strong></td>
+			<td><%= @user.department %></td>
+			<td>
+				<strong>Designation:</strong></td>
+			<td><%= @user.designation %></td>
+			
+		</tr>
+		<tr>
+			<td>
+				<strong>Date of Joining:</strong></td>
+			<td><%= @user.doj %></td>
+			<td>
+				<strong>PF/ESI:</strong></td>
+			<td>0</td>
+			
+		</tr>
+		<tr>
+			<td>
+				<strong>Bank Account:</strong></td>
+			<td><%= (@user.bacc).to_i %></td>
+			<td>
+				<strong>Number of Days:</strong></td>
+<td></td>
+</tr>
+
+	</table><br>
+
+	<table width=100%, border="1px", style="border-collapse: collapse;"> 
+        <tr> 
+            <th>Earnings</th> 
+            <th>Amount</th> 
+            <th>Deductions</th> 
+            <th>Amount</th> 
+        </tr> 
+        <tr> 
+            <td>Basic Pay</td> 
+            <td><%= @user.bp %></td>
+
+            <td>Professional Tax</td>
+            <td><%= @user.pt%></td>
+                       
+        </tr> 
+        <tr> 
+            <td>HRA</td> 
+            <td><%= @user.hra%></td>
+
+            <td>Loss of Pay</td>
+            <td><%= @user.lop %></td>
+            
+        </tr> 
+        <tr> 
+            <td>CCA</td> 
+            <td><%= @user.cca%></td>
+
+            <td>Other Deductions</td>
+            <td><%= @user.od %></td>
+            
+        </tr> 
+        <tr> 
+            <td>Special Allowance</td> 
+            <td><%= @user.sa%></td>
+
+            <td></td>
+            <td></td>
+            
+        </tr> 
+        <tr> 
+            <td>Transport Allowance</td> 
+            <td><%= @user.ta%></td>
+            <td></td>
+            <td></td>
+            
+        </tr> 
+        <tr> 
+            <td>Reimbursement</td> 
+            <td><%= @user.reim%></td>
+            <td></td>
+            <td></td>
+            
+        </tr> 
+        <tr> 
+            <td style="font-weight: bold; text-decoration: underline;">Total Earnings</td> 
+            <td><%= @user.gsal %></td>
+            <td style="font-weight: bold;text-decoration: underline;">Total Deductions</td>
+            <td><%= (@user.pt + @user.od + @user.lop)%></td>
+            
+        </tr> 
+        <tr> 
+            <td ></td> 
+            <td></td>
+            <td style="font-weight: bold;text-decoration: underline;">Net Pay</td>
+            <td><%= @user.ns%></td>   
+            	
+		</tr>
+	</table>
+	<br>
+
+	<center><p style="font-weight: bold">***This is system generated payslip and does not require signature</p></center>
+
+
+
+
+
+<script>
+function myFunction() {
+  window.print();
+}
+</script>
+
+</body>
+
+
+</fieldset><br>
+<center><button onclick="myFunction()">Print this page</button></center>
+</html>
+
