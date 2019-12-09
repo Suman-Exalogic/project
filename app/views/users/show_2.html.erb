@@ -40,6 +40,8 @@ table.inner{
     <% if session[:user_type]=='admin' %>
       <a href="/users">Home</a>
       <a class="active" >Salary Details</a>
+      <a  href="<%= payslip_path(@user)%>">Generate Payslip</a>
+
     <%else%>
       <a href="#">Home</a>
     <%end%>

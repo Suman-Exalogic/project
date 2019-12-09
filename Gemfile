@@ -7,6 +7,8 @@ ruby '2.6.5'
 gem 'rails', '~> 6.0.1'
 # Use sqlite3 as the database for Active Record
 # Use Puma as the app server
+gem 'wicked_pdf'
+
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'

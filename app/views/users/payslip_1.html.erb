@@ -1,7 +1,8 @@
+  
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Payslip</title>
+	<title>Payslip_1</title>
 	<style type="text/css">
 	#title {
 	margin-bottom: 20px;
@@ -21,11 +22,6 @@
 	}
 </style>
 </head>
-<div class="topnav">
-<a href="/users">Home</a>
-<a  class="active">Generate Payslip</a>
-<%= link_to "Logout", signout_path, method: :delete, data: {confirm: "Are you sure???"} %>
-</div><br><br>
 
 <img src = "http://www.exalogic.in/wp-content/uploads/2018/08/exalogic.png" style="height:50px;">
 
@@ -176,8 +172,7 @@ function myFunction() {
   		<div class="some-other-div">
     		 
   		</div>
-  		
+  	</div>
 
-<td style="color: blue;width: 100px; text-align: center;"><%= button_to "Generate pdf", payslip_1_path(@user), :method => "get" %></td>
 </html>
 

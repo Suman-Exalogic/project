@@ -70,10 +70,18 @@ end
 
   def payslip
     @user = User.find(params[:id])
+    end
+ def payslip_1
+  @user = User.find(params[:id])
 
+  pdf = WickedPdf.new.pdf_from_string( #1
+    render_to_string('payslip_1', layout: false)) #2
+    send_data(pdf, #3
+    filename: 'payslip_1.pdf', #4
+    type: 'application/pdf', #5
+    disposition: 'attachment') #6
 
-  end
- 
+ end
 
 
   def itax(sal)
