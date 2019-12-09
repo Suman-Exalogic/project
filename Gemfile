@@ -8,6 +8,9 @@ gem 'rails', '~> 6.0.1'
 # Use sqlite3 as the database for Active Record
 # Use Puma as the app server
 gem 'wicked_pdf'
+gem 'jquery-rails'
+gem 'wkhtmltopdf-binary'
+
 
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
