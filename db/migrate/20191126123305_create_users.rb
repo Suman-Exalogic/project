@@ -20,6 +20,10 @@
       t.string :sskill2
       t.string :role
       t.string :password_digest
+      t.date :doj
+      t.string :department
+      t.string :designation
+
 
       t.timestamps
     end
