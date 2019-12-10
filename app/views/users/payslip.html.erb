@@ -22,7 +22,11 @@
 </style>
 </head>
 <div class="topnav">
+	<% if session[:user_type]=='admin' %>
 <a href="/users">Home</a>
+	<% else %>
+<a href="#">Home</a>
+	<% end%>
 <a  class="active">Generate Payslip</a>
 <%= link_to "Logout", signout_path, method: :delete, data: {confirm: "Are you sure???"} %>
 </div><br><br>
