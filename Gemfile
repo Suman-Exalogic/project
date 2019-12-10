@@ -10,7 +10,7 @@ gem 'rails', '~> 6.0.1'
 gem 'wicked_pdf'
 gem 'jquery-rails'
 gem 'wkhtmltopdf-binary'
-
+gem 'humanize'
 
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets

@@ -34,16 +34,16 @@
 <center><h1>Pay Slip </h1></center>
 <hr>
 
- <style> 
-          
-        th, td { 
-            padding: 10px; 
-        } 
-          
-        th { 
-            text-align: left; 
-        } 
-    </style> 
+ <style>
+
+        th, td {
+            padding: 10px;
+        }
+
+        th {
+            text-align: left;
+        }
+    </style>
 
 </head>
 <body>
@@ -53,7 +53,7 @@
 				<strong>Employee id:</strong></td>
 			<td><%= (@user.empid.to_s).to_i%></td>
 			<td>
-				<strong>Name:</strong></td>	
+				<strong>Name:</strong></td>
 				<td><%= @user.fname %>&nbsp;<%= @user.lname %></td>
 		</tr>
 		<tr>
@@ -63,7 +63,7 @@
 			<td>
 				<strong>Designation:</strong></td>
 			<td><%= @user.designation %></td>
-			
+
 		</tr>
 		<tr>
 			<td>
@@ -72,7 +72,7 @@
 			<td>
 				<strong>PF/ESI:</strong></td>
 			<td>0</td>
-			
+
 		</tr>
 		<tr>
 			<td>
@@ -85,77 +85,89 @@
 
 	</table><br>
 
-	<table width=100%, border="1px", style="border-collapse: collapse;"> 
-        <tr> 
-            <th>Earnings</th> 
-            <th>Amount</th> 
-            <th>Deductions</th> 
-            <th>Amount</th> 
-        </tr> 
-        <tr> 
-            <td>Basic Pay</td> 
+	<table width=100%, border="1px", style="border-collapse: collapse;">
+        <tr>
+            <th>Earnings</th>
+            <th>Amount</th>
+            <th>Deductions</th>
+            <th>Amount</th>
+        </tr>
+        <tr>
+            <td>Basic Pay</td>
             <td><%= @user.bp %></td>
 
             <td>Professional Tax</td>
             <td><%= @user.pt%></td>
-                       
-        </tr> 
-        <tr> 
-            <td>HRA</td> 
+
+        </tr>
+        <tr>
+            <td>HRA</td>
             <td><%= @user.hra%></td>
 
             <td>Loss of Pay</td>
             <td><%= @user.lop %></td>
-            
-        </tr> 
-        <tr> 
-            <td>CCA</td> 
+
+        </tr>
+        <tr>
+            <td>CCA</td>
             <td><%= @user.cca%></td>
 
             <td>Other Deductions</td>
             <td><%= @user.od %></td>
-            
-        </tr> 
-        <tr> 
-            <td>Special Allowance</td> 
+
+        </tr>
+        <tr>
+            <td>Special Allowance</td>
             <td><%= @user.sa%></td>
 
             <td></td>
             <td></td>
-            
-        </tr> 
-        <tr> 
-            <td>Transport Allowance</td> 
+
+        </tr>
+        <tr>
+            <td>Transport Allowance</td>
             <td><%= @user.ta%></td>
             <td></td>
             <td></td>
-            
-        </tr> 
-        <tr> 
-            <td>Reimbursement</td> 
+
+        </tr>
+        <tr>
+            <td>Reimbursement</td>
             <td><%= @user.reim%></td>
             <td></td>
             <td></td>
-            
-        </tr> 
-        <tr> 
-            <td style="font-weight: bold; text-decoration: underline;">Total Earnings</td> 
+
+        </tr>
+        <tr>
+            <td style="font-weight: bold; text-decoration: underline;">Total Earnings</td>
             <td><%= @user.gsal %></td>
             <td style="font-weight: bold;text-decoration: underline;">Total Deductions</td>
             <td><%= (@user.pt + @user.od + @user.lop)%></td>
-            
-        </tr> 
-        <tr> 
-            <td ></td> 
+
+        </tr>
+        <tr>
+            <td ></td>
             <td></td>
             <td style="font-weight: bold;text-decoration: underline;">Net Pay</td>
-            <td><%= @user.ns%></td>   
-            	
+            <td><%= @user.ns%></td>
+
 		</tr>
 	</table>
 	<br>
+	<table >
+
+		<tr>
+			<td>
+				<strong>Net Pay (in words):</strong></td>
+			<td><%= (@user.ns.to_i).humanize.capitalize  %> only</td>
+		</tr>
+	</table>
+	<br>
+	<hr>
+
 
 	<center><p style="font-weight: bold">***This is system generated payslip and does not require signature</p></center>
+
 
 
 
@@ -174,10 +186,9 @@ function myFunction() {
 <%= wicked_pdf_stylesheet_link_tag 'user' %>
 	<div class="some-div">
   		<div class="some-other-div">
-    		 
+
   		</div>
-  		
+
 
 <td style="color: blue;width: 100px; text-align: center;"><%= button_to "Generate pdf", payslip_1_path(@user), :method => "get" %></td>
 </html>
-
