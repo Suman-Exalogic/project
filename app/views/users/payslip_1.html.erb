@@ -74,8 +74,8 @@
 			<td>
 				<strong>Bank Account:</strong></td>
 			<td><%= (@user.bacc).to_i %></td>
-			<td><strong>Month:</strong></td>
-				<td><%= Date::MONTHNAMES[Date.today.month] %></td>
+      <td><strong>Month/Year :</strong></td>
+				<td><%= @user.month %> / <%=@user.year %></td>
 <td></td>
 </tr>
 

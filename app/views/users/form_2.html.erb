@@ -35,7 +35,7 @@
       o=parseFloat(form.od.value);
       gs=parseFloat(bp+s+t+h+c+r);
       form.gsal.value=parseFloat(gs);
-       
+
       // form.it.value=((gs-(c))*20/100);
       // t=parseFloat(form.it.value);
       form.ns.value=parseFloat(gs-(l+p+o));
@@ -62,7 +62,24 @@
 
 Employee Id          :           <td><%= (@user.empid.to_s).to_i %></td><br>
 Name                 :           <td ><%= @user.fname %>&nbsp<%= @user.lname %></td><br>
-Bank Account<label style="color:red">*</label>        :           <input type="number"  name="bacc" pattern="\d{12}" title="Please enter digits" min="0" required /><br />
+Month<label style="color:red">*</label>               :           <td><select name="month">
+                                      <option value="Jan">January</option>
+                                      <option value="Feb">February</option>
+                                      <option value="March">March</option>
+                                      <option value="April">April</option>
+                                      <option value="May">May</option>
+                                      <option value="Jun">June</option>
+                                      <option value="July">July</option>
+                                      <option value="August">August</option>
+                                      <option value="Sept">September</option>
+                                      <option value="Oct">October</option>
+                                      <option value="Nov">November</option>
+                                      <option value="Dec">December</option></select>
+                                    </td>
+Year<label style="color:red">*</label>                :           <td><input type="number" name="year" max="<%= Time.now.strftime("%Y".to_s)%>" min="<%= @user.doj.strftime("%Y").to_s%>" required /></td>
+
+
+Bank Account<label style="color:red">*</label>        :           <input type="number"  name="bacc" min=0 message ="Only positive number without spaces are allowed" required /><br />
 Basic Pay<label style="color:red">*</label>           :           <input type="number" size="20" name="bp" min="0"  required /><br />
 Number of Leaves<label style="color:red">*</label>    :           <input type="number" size="20" name="nol" min="0" required /><br />
 Reimbursement<label style="color:red">*</label>       :           <input type="number" size="20" name="reim" min="0"/><br  required/>
@@ -70,15 +87,15 @@ Reimbursement<label style="color:red">*</label>       :           <input type="n
 
 HRA                  :           <input type="number" size="20" name="hra" min="0"/><br />
 CCA                  :           <input type="number" size="20" name="cca" min="0"/><br />
-Special Allowance    :           <input type="number" size="20" name="sa" min="0"/><br /> 
+Special Allowance    :           <input type="number" size="20" name="sa" min="0"/><br />
 Transport Allowance  :           <input type="number" size="20" name="ta" min="0"/><br />
 Gross Salary         :           <input type="number" size="20" name="gsal" min="0"/><br /> <br />
 <b>Deductions  :</b ><br />
 Professional Tax     :           <input type ="number" size="20" name="pt" min="0"/> <br />
 Loss of Pay          :           <input type ="number" size="20" name="lop" min="0"/> <br />
-Other Deductions     :           <input type ="number" size="20" name="od" min="0"/> <br />    
+Other Deductions     :           <input type ="number" size="20" name="od" min="0"/> <br />
 <br />
-<b><i>Net Salary           :        </b></i>   <input type="number" size="20" name="ns" min="0"/> <br />
+<b><i>Net Salary           :         </b></i>  <input type="number" size="20" name="ns" min="0"/> <br />
 
 
                                  <input type="submit" name="Submit">  <input type="reset" name="Btn2" value="Reset"/>

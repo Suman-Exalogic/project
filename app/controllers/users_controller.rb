@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   def form_2
     @user =User.find(params[:id])
     session[:temp] = params[:id]
-  end 
+  end
 
   def create
   	@user = User.new(user_params)
@@ -27,14 +27,14 @@ def temp
     @user =User.find(session[:temp])
     @user.update(bp: params[:bp],bacc: params[:bacc],hra: params[:hra],nol: params[:nol],reim: params[:reim],
       cca: params[:cca],sa: params[:sa],ta: params[:ta],gsal: params[:gsal],it: params[:it],
-      pt: params[:pt],lop: params[:lop],od: params[:od],ns: params[:ns])
+      pt: params[:pt],lop: params[:lop],od: params[:od],ns: params[:ns], month: params[:month], year: params[:year])
     # if @user.update(userparams)
     #   redirect_to @user
     # else
     #   redirect_to ''
     # end
-    redirect_to user_path(@user) 
-end 
+    redirect_to user_path(@user)
+end
 
   def edit
     @user = User.find(params[:id])
@@ -51,7 +51,7 @@ end
 
   def show
     @user = User.find(params[:id])
-    
+
   end
 
   def show_2
@@ -94,25 +94,23 @@ end
     else
       return (sal-1000000)*30/100
   end
-end 
+end
 
   private
 
   def user_params
   	params.require(:login).permit(:doj,:department,:designation,:bacc,:empid,:fname,:lname,:dob,:email,:mobile,:gender,:address,:city,
   		:state,:country,:pincode,:blood,:ename,:econtact,:pskill,:sskill1,:sskill2,
-  		:role,:password,:password_confirmation)
+  		:role,:password,:password_confirmation,:month,:year)
   end
 
   def userparams
   	params.require(:user).permit(:doj,:department,:designation,:bacc,:empid,:fname,:lname,:dob,:email,:mobile,:gender,:address,:city,
   		:state,:country,:pincode,:blood,:ename,:econtact,:pskill,:sskill1,:sskill2,
-  		:role,:password,:password_confirmation,:bp, :hra ,:nol, :cca, :sa ,:ta ,:reim ,:gsal, :it, :pt, :lop, :od ,:ns)
+  		:role,:password,:password_confirmation,:bp,:month,:year, :hra ,:nol, :cca, :sa ,:ta ,:reim ,:gsal, :it, :pt, :lop, :od ,:ns)
   end
 
   def tempparams
-    params.require(:user).permit(:bp, :hra ,:nol, :cca, :sa ,:ta ,:reim ,:gsal, :it, :pt, :lop, :od ,:ns)
+    params.require(:user).permit(:bp,:month,:year, :hra ,:nol, :cca, :sa ,:ta ,:reim ,:gsal, :it, :pt, :lop, :od ,:ns)
   end
-  # params.require(:user).permit(:empid,:fname,:lname,:department,:designation,:doj,:bacc,:bp,:hra,:cca,
-    # :sa,:ta,:reim,:gsal,:pt,:lop,:od,:ns)
 end
