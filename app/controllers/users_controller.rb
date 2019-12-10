@@ -16,7 +16,8 @@ class UsersController < ApplicationController
   	@user = User.new(user_params)
     @msg
   	if @user.save
-  		redirect_to salary_path(@user)
+      @user.update(empid: (@user.id.to_s.rjust(3,"0")))
+      redirect_to salary_path(@user)
   	else
     @msg = "***Please check your mail id and password ***"
   	render 'new'

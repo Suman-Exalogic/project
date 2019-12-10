@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_10_045920) do
+ActiveRecord::Schema.define(version: 2019_12_10_100639) do
 
   create_table "charges", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 2019_12_10_045920) do
     t.decimal "gsal", default: "0.0"
     t.decimal "nol", default: "0.0"
     t.decimal "ns", default: "0.0"
-    t.integer "empid"
+    t.string "empid"
     t.string "bacc"
     t.string "month"
     t.integer "year"
